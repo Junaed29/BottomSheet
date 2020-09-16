@@ -53,7 +53,7 @@ public class ExampleFragment extends Fragment  {
         bottomSheetBehavior = bottomSheetBehavior.from(view1);
 
 
-
+        // Initially set the name programmatically‎
         if (bottomSheetBehavior.getState() == BottomSheetBehavior.STATE_EXPANDED){
             changeStatusButton.setText("COLLAPSED");
             statusTextView.setText("Bottom Sheet is EXPANDED");
@@ -65,6 +65,7 @@ public class ExampleFragment extends Fragment  {
         }
 
 
+        //bottomSheet operations
         bottomSheetBehavior.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
             @Override
             public void onStateChanged(@NonNull View bottomSheet, int newState) {
@@ -94,6 +95,7 @@ public class ExampleFragment extends Fragment  {
             }
         });
 
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -101,6 +103,8 @@ public class ExampleFragment extends Fragment  {
             }
         });
 
+
+        //Change state of bottomSheet by clicking button
         changeStatusButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
