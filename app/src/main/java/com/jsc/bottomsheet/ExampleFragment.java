@@ -52,6 +52,10 @@ public class ExampleFragment extends Fragment  {
         View view1 = view.findViewById(R.id.bottomSheet);
         bottomSheetBehavior = bottomSheetBehavior.from(view1);
 
+        bottomSheetBehavior.setPeekHeight(300);
+        bottomSheetBehavior.setHideable(true);
+
+        //bottomSheetBehavior.setPeekHeight(BottomSheetBehavior.PEEK_HEIGHT_AUTO);
 
         // Initially set the name programmatically‎
         if (bottomSheetBehavior.getState() == BottomSheetBehavior.STATE_EXPANDED){
@@ -71,20 +75,33 @@ public class ExampleFragment extends Fragment  {
             public void onStateChanged(@NonNull View bottomSheet, int newState) {
                 switch (newState){
                     case BottomSheetBehavior.STATE_COLLAPSED:
+                        bottomSheetBehavior.setPeekHeight(300);
+                        bottomSheetBehavior.setHideable(true);
                         statusTextView.setText("Bottom Sheet is COLLAPSED");
                         changeStatusButton.setText("EXPAND");
                         arrowImageView.setBackgroundResource(R.drawable.ic_baseline_keyboard_arrow_up_24);
                         break;
                     case BottomSheetBehavior.STATE_EXPANDED:
+                        bottomSheetBehavior.setPeekHeight(300);
+                        bottomSheetBehavior.setHideable(true);
                         statusTextView.setText("Bottom Sheet is EXPANDED");
                         changeStatusButton.setText("COLLAPSE");
                         arrowImageView.setBackgroundResource(R.drawable.ic_baseline_keyboard_arrow_down_24);
                         break;
                     case BottomSheetBehavior.STATE_DRAGGING:
+                        bottomSheetBehavior.setPeekHeight(300);
+                        bottomSheetBehavior.setHideable(true);
                         statusTextView.setText("Bottom Sheet is DRAGGING...");
                         break;
                     case BottomSheetBehavior.STATE_SETTLING:
+                        bottomSheetBehavior.setPeekHeight(300);
+                        bottomSheetBehavior.setHideable(true);
                         statusTextView.setText("Bottom Sheet is SETTLING...");
+                        break;
+                    case BottomSheetBehavior.STATE_HIDDEN:
+                        statusTextView.setText("Bottom Sheet is HIDDEN");
+                        bottomSheetBehavior.setPeekHeight(100);
+                        bottomSheetBehavior.setHideable(false);
                         break;
                 }
             }
